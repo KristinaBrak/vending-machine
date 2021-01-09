@@ -1,12 +1,12 @@
 import React from "react";
-import ControlPanel from "./control-panel/ControlPanel";
-import Produce from "./produce/Produce";
+import ControlPanelConteiner from "./control-panel/ControlPanelConteiner";
+import Products from "./products/Products";
 
 const VendingMachine = () => {
   return (
-    <div>
-      <Produce />
-      <ControlPanel />
+    <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+      <ControlPanelConteiner />
+      {/* <Products /> */}
     </div>
   );
 };

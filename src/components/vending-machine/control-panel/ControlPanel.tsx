@@ -1,16 +1,21 @@
-import React from "react";
+import styled from "styled-components";
 
-const ControlPanel = () => {
-  const numbers = Array.from(Array(10).keys());
-  return (
-    <>
-      {numbers.map((number) => (
-        <button key={number}>{number}</button>
-      ))}
-      <button key="cancel">Cancel</button>
-      <button key="enter">Enter</button>
-    </>
-  );
-};
+const ControlPanel = styled.div`
+  --sizeNumberButton: 60px;
+  width: 100%;
+  border: 1px solid green;
+  display: grid;
+
+  .keypad-digit {
+    width: var(--sizeNumberButton);
+    height: var(--sizeNumberButton);
+    border-radius: 50%;
+  }
+
+  .cancel {
+    width: 66.66%;
+    height: 50px;
+  }
+`;
 
 export default ControlPanel;

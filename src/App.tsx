@@ -1,8 +1,14 @@
 import React from "react";
 import VendingMachine from "./components/vending-machine/VendingMachine";
+import { Provider } from "react-redux";
+import store from "./redux-store/store";
 
 const App = () => {
-  return <VendingMachine />;
+  return (
+    <Provider store={store}>
+      <VendingMachine />
+    </Provider>
+  );
 };
 
 export default App;
