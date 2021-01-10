@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import "./control-panel.css";
 import ControlPanel from "./ControlPanel";
+import KeypadButton from "./KeypadButton";
 
 const CODE_LENGTH = 4;
 
@@ -25,20 +25,24 @@ const ControlPanelConteiner = () => {
 
   return (
     <ControlPanel>
-      {/* <p>{code}</p> */}
       {digits.map((digit) => (
-        <button
+        <KeypadButton
           key={digit}
           id={`keypad-${digit}`}
           className="keypad-digit"
           onClick={() => appendDigitToCode(digit)}
         >
           {digit}
-        </button>
+        </KeypadButton>
       ))}
-      <button key="cancel" className="cancel" onClick={resetCode}>
-        Cancel
-      </button>
+      <KeypadButton
+        key="cancel"
+        id={`keypad-cancel`}
+        className="cancel"
+        onClick={resetCode}
+      >
+        C
+      </KeypadButton>
     </ControlPanel>
   );
 };
