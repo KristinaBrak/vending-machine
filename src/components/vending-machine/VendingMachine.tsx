@@ -1,12 +1,12 @@
 import React from "react";
 import ControlPanelConteiner from "./control-panel/ControlPanelConteiner";
-import Products from "./products/Products";
+import ProductListContainer from "./products/ProductListContainer";
 
 const VendingMachine = () => {
   return (
     <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
-      <ControlPanelConteiner />
-      {/* <Products /> */}
+      {/* <ControlPanelConteiner /> */}
+      <ProductListContainer />
     </div>
   );
 };

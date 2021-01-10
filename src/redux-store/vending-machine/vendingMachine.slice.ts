@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import apple from "../../images/apple.jpg";
 
-interface Product {
+export interface Product {
   name: string;
+  pictureURL: string;
+  price: number;
 }
 
 interface VendingMachine {
@@ -9,7 +12,11 @@ interface VendingMachine {
 }
 
 const initialState: VendingMachine = {
-  products: [{ name: "Apple" }, { name: "Chips" }],
+  products: [
+    { name: "apple", pictureURL: `${apple}`, price: 100 },
+    { name: "chips", pictureURL: `${apple}`, price: 250 },
+    { name: "cola", pictureURL: `${apple}`, price: 300 },
+  ],
 };
 
 const { reducer: vendingMachineReducer, actions } = createSlice({
