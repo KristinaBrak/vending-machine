@@ -13,9 +13,9 @@ interface VendingMachine {
 
 const initialState: VendingMachine = {
   products: [
-    { name: "apple", pictureURL: `${apple}`, price: 100 },
-    { name: "chips", pictureURL: `${apple}`, price: 250 },
-    { name: "cola", pictureURL: `${apple}`, price: 300 },
+    { name: "1apple", pictureURL: `${apple}`, price: 100 },
+    { name: "2chips", pictureURL: `${apple}`, price: 250 },
+    { name: "3cola", pictureURL: `${apple}`, price: 300 },
   ],
 };
 

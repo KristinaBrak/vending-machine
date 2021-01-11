@@ -1,5 +1,5 @@
 import React from "react";
-import VendingMachine from "./components/vending-machine/VendingMachine";
+import VendingMachine from "./containers/vending-machine/VendingMachine";
 import { Provider } from "react-redux";
 import store from "./redux-store/store";
 
