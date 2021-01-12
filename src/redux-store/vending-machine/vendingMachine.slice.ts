@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import apple from "../../images/apple.jpg";
+import chips from "../../images/chips.png";
+import cola from "../../images/cola.png";
 
 export interface Product {
   name: string;
@@ -13,9 +15,9 @@ interface VendingMachine {
 
 const initialState: VendingMachine = {
   products: [
-    { name: "1apple", pictureURL: `${apple}`, price: 100 },
-    { name: "2chips", pictureURL: `${apple}`, price: 250 },
-    { name: "3cola", pictureURL: `${apple}`, price: 300 },
+    { name: "apple", pictureURL: `${apple}`, price: 50 },
+    { name: "chips", pictureURL: `${chips}`, price: 250 },
+    { name: "cola", pictureURL: `${cola}`, price: 100 },
   ],
 };
 

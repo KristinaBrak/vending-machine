@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Arrow = styled.button`
+  visibility: hidden;
   background-color: hsla(0, 0%, 50%, 0.85);
   color: white;
   width: 50px;

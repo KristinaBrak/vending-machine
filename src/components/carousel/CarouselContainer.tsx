@@ -3,7 +3,7 @@ import { Product } from "../../redux-store/vending-machine/vendingMachine.slice"
 import CarouselArrow from "./CarouselArrow";
 import ProductContainer from "../../containers/vending-machine/products/product/ProductContainer";
 import Carousel from "./Carousel";
-import CarouselItem from "./CarouselItem";
+import CarouselItemContainer from "./CarouselItemContainer";
 import { current } from "@reduxjs/toolkit";
 
 interface Props {
@@ -40,19 +40,17 @@ const CarouselContainer: React.FC<Props> = ({ children }) => {
 
   return (
     <Carousel>
-      <>
-        <CarouselArrow
-          direction="left"
-          clickFunction={() => changeIndex("left")}
-          glyph="<-"
-        />
-        <CarouselItem item={children[currentIndex]} changeIndex={changeIndex} />
-        <CarouselArrow
-          direction="right"
-          clickFunction={() => changeIndex("right")}
-          glyph="->"
-        />
-      </>
+      <CarouselArrow
+        direction="left"
+        clickFunction={() => changeIndex("left")}
+        glyph="<-"
+      />
+      <CarouselItemContainer item={children[currentIndex]} changeIndex={changeIndex} />
+      <CarouselArrow
+        direction="right"
+        clickFunction={() => changeIndex("right")}
+        glyph="->"
+      />
     </Carousel>
   );
 };
