@@ -1,5 +1,5 @@
 import React from "react";
-import { DELIMITER } from "../../../../consts";
+import { CURRENCY, DELIMITER } from "../../../../consts";
 import { Product } from "../../../../redux-store/vending-machine/vendingMachine.slice";
 import Image from "./Image";
 import Info from "./Info";
@@ -15,7 +15,10 @@ const ProductContainer: React.FC<Props> = ({ product }) => {
       <Image src={product.pictureURL} alt={product.name} />
       <Info>
         <div className="product-name">{product.name}</div>
-        <div className="product-price">{product.price / DELIMITER}€</div>
+        <div className="product-price">
+          {product.price / DELIMITER}
+          {CURRENCY}
+        </div>
       </Info>
     </ProductStyle>
   );

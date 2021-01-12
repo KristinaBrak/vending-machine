@@ -3,7 +3,8 @@ import styled from "styled-components";
 const ControlPanel = styled.div`
   --sizeNumberButton: 60px;
   width: 100%;
-  border: 1px solid green;
+  padding: 10px;
+  margin-bottom: 50px;
   display: grid;
   justify-content: center;
   grid-template-areas:
