@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { CURRENCY } from "../../../consts";
+import TextArea from "./TextArea";
 import ControlPanel from "./ControlPanel";
 import KeypadButton from "./KeypadButton";
 
 const CODE_LENGTH = 4;
 
-const ControlPanelConteiner = () => {
+interface Props {
+  money: number;
+}
+
+const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
   const [code, setCode] = useState("");
   const digits = Array.from(Array(10).keys());
 
@@ -25,6 +31,9 @@ const ControlPanelConteiner = () => {
 
   return (
     <ControlPanel>
+      <TextArea className="text-area">
+        {code ? code : `${money.toString()}${CURRENCY}`}
+      </TextArea>
       {digits.map((digit) => (
         <KeypadButton
           key={digit}

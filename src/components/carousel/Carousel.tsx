@@ -7,7 +7,6 @@ const Carousel = styled.div`
   margin: auto;
   background-color: hsla(124, 28%, 64%, 1);
   color: white;
-  border-radius: 15px;
   display: flex;
   align-items: center;
 `;

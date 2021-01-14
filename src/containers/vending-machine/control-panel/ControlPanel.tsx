@@ -8,6 +8,7 @@ const ControlPanel = styled.div`
   display: grid;
   justify-content: center;
   grid-template-areas:
+    "text-area text-area text-area text-area"
     "keypad-1 keypad-2 keypad-3 keypad-cancel"
     "keypad-4 keypad-5 keypad-6 keypad-cancel"
     "keypad-7 keypad-8 keypad-9 keypad-0";
