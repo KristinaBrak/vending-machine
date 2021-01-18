@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
 const MenuButton = styled.button`
-  --size: 40px;
+  --size: 50px;
   position: absolute;
   top: 10px;
   left: 10px;
   padding: 5px;
   width: var(--size);
   height: var(--size);
-  z-index: 2;
+  z-index: 3;
+  border-radius: 50%;
+  background-color: #eceaea;
 
   &#open {
-    position: relative;
-    margin: -10px;
+    margin: -8px;
+  }
+
+  &:active {
+    background-color: gray;
+    color: #eceaea;
   }
 `;
 

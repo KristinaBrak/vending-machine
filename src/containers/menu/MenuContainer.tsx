@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MenuButton from "./MenuButton";
 import MenuWindow from "./MenuWindow";
 
-const Menu = () => {
+const MenuContainer = () => {
   const [openFull, setOpenFull] = useState(false);
 
   return (
@@ -19,12 +19,14 @@ const Menu = () => {
       </MenuButton>
       {openFull ? (
         <MenuWindow>
-          <p>Vending Machine</p>
-          
+          <h2>Vending Machine</h2>
+          <button>Machine</button>
+          <button>Wallet</button>
+          <button>Basket</button>
         </MenuWindow>
       ) : null}
     </>
   );
 };
 
-export default Menu;
+export default MenuContainer;
