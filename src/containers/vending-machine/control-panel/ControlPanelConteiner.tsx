@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CURRENCY } from "../../../consts";
+import { CURRENCY, DELIMITER } from "../../../consts";
 import TextArea from "./TextArea";
 import ControlPanel from "./ControlPanel";
 import KeypadButton from "./KeypadButton";
@@ -32,7 +32,7 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
   return (
     <ControlPanel>
       <TextArea className="text-area">
-        {code ? code : `${money.toString()}${CURRENCY}`}
+        {code ? code : `${(money / DELIMITER).toString()}${CURRENCY}`}
       </TextArea>
       {digits.map((digit) => (
         <KeypadButton

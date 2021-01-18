@@ -9,12 +9,11 @@ const Info = styled.div`
   margin: 10px;
 
   & .product-name {
-    font-size: 32px;
-    padding-bottom: 10px;
+    font-size: 52px;
   }
 
   & .product-price {
-    font-size: 24px;
+    font-size: 32px;
   }
 `;
 export default Info;

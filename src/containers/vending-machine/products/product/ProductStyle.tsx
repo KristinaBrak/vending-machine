@@ -4,7 +4,9 @@ const ProductStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  width: 320px;
+  height: 200px;
+  padding: 20px;
 `;
 
 export default ProductStyle;

@@ -15,6 +15,10 @@ const Arrow = styled.button`
   &#slide-arrow-right {
     right: 0;
   }
+
+  & .activated {
+    visibility: visible;
+  }
 `;
 
 export default Arrow;

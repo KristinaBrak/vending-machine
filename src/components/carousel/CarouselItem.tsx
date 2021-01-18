@@ -5,6 +5,8 @@ from{opacity:0.4}
 to{opacity:1}
 `;
 
-const CarouselItem = styled.div``;
+const CarouselItem = styled.div`
+
+`;
 
 export default CarouselItem;
