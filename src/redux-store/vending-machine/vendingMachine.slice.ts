@@ -4,6 +4,7 @@ import chips from "../../images/chips.png";
 import cola from "../../images/cola.png";
 
 export interface Product {
+  id: string;
   name: string;
   pictureURL: string;
   price: number;
@@ -11,13 +12,19 @@ export interface Product {
 
 interface VendingMachine {
   products: Product[];
+  quantity: { productId: string; quantity: number }[];
 }
 
 const initialState: VendingMachine = {
   products: [
-    { name: "apple", pictureURL: `${apple}`, price: 50 },
-    { name: "chips", pictureURL: `${chips}`, price: 250 },
-    { name: "cola", pictureURL: `${cola}`, price: 100 },
+    { id: "1", name: "apple", pictureURL: `${apple}`, price: 50 },
+    { id: "2", name: "chips", pictureURL: `${chips}`, price: 250 },
+    { id: "3", name: "cola", pictureURL: `${cola}`, price: 100 },
+  ],
+  quantity: [
+    { productId: "1", quantity: 5 },
+    { productId: "2", quantity: 5 },
+    { productId: "3", quantity: 5 },
   ],
 };
 

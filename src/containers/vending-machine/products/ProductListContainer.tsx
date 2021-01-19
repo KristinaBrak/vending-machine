@@ -4,9 +4,11 @@ import { productsSelector } from "../../../redux-store/vending-machine/vendingMa
 import CarouselContainer from "../../../components/carousel/CarouselContainer";
 import ProductContainer from "./product/ProductContainer";
 import ProductList from "./ProductList";
+import { addProduct } from "../../../redux-store/basket/basket.slice";
 
 const ProductListContainer = () => {
   const products = useSelector(productsSelector);
+
   return (
     <ProductList>
       <h2>
