@@ -4,8 +4,9 @@ import TextArea from "./TextArea";
 import ControlPanel from "./ControlPanel";
 import KeypadButton from "./KeypadButton";
 import { addProduct } from "../../../redux-store/basket/basket.slice";
+import { decrementProductQuantity } from "../../../redux-store/vending-machine/vendingMachine.slice";
 import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CODE_LENGTH = 4;
 const digits = Array.from(Array(10).keys());
@@ -16,6 +17,7 @@ interface Props {
 
 const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
   const slots = useSelector(slotListSelector);
+  const dispatch = useDispatch();
   const [code, setCode] = useState("");
 
   useEffect(() => {
@@ -30,23 +32,30 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
     };
   }, [code]);
 
-  const appendDigitToCode = (digit: number) => {
-    if (code.length < CODE_LENGTH) {
-      setCode(code + digit);
-    }
-  };
-
   const findProduct = () => {
     const foundSlot = slots.find((slot) => slot.code === code);
+    console.log("I found", foundSlot);
+    if (foundSlot !== undefined && foundSlot.quantity === 0) {
+      return undefined;
+    }
     return foundSlot?.product;
   };
 
   const submitCode = () => {
     const product = findProduct();
+    console.log("submitCode product", product);
     if (product !== undefined) {
-      addProduct(product);
+      dispatch(decrementProductQuantity(product));
+      dispatch(addProduct(product));
     }
     setCode("");
+  };
+
+  const appendDigitToCode = (digit: number) => {
+    if (code.length < CODE_LENGTH) {
+      const newCode = code.concat(digit.toString());
+      setCode(newCode);
+    }
   };
 
   return (

@@ -16,14 +16,17 @@ const { reducer: basketReducer, actions } = createSlice({
   initialState,
   reducers: {
     addProduct: (state, { payload }: PayloadAction<Product>) => {
+      console.log("payload", payload);
       const index = state.boughtProducts.findIndex(
         ({ product: { id } }) => id === payload.id
       );
-
+      console.log("index", index);
       if (index >= 0) {
         state.boughtProducts[index].quantity += 1;
+        console.log("boughtProducts", state.boughtProducts);
       } else {
         state.boughtProducts.push({ product: payload, quantity: 1 });
+        console.log("boughtProducts", state.boughtProducts);
       }
     },
   },

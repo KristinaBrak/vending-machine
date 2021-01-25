@@ -25,7 +25,7 @@ const initialState: VendingMachine = {
     {
       code: "1234",
       product: { id: "1", name: "apple", pictureURL: `${apple}`, price: 50 },
-      quantity: 10,
+      quantity: 2,
     },
     {
       code: "2345",
@@ -49,8 +49,8 @@ const { reducer: vendingMachineReducer, actions } = createSlice({
     },
     decrementProductQuantity: (state, { payload }: PayloadAction<Product>) => {
       state.slotList.map((slot) => {
-        if (slot.product === payload && slot.quantity !== 0) {
-          slot.quantity -= 1;
+        if (slot.product.id === payload.id && slot.quantity !== 0) {
+          slot.quantity = slot.quantity - 1;
         }
         return slot;
       });
@@ -58,5 +58,5 @@ const { reducer: vendingMachineReducer, actions } = createSlice({
   },
 });
 
-export const { addSlot } = actions;
+export const { addSlot, decrementProductQuantity } = actions;
 export default vendingMachineReducer;

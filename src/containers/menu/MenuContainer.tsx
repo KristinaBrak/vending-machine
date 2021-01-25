@@ -31,18 +31,16 @@ const MenuContainer = () => {
       {openFull ? (
         <MenuWindow>
           <h2>Vending Machine</h2>
-          <nav>
-            <button onClick={() => setOpenFull(false)}>
-              <Link to="/">Machine</Link>
-            </button>
-            <button onClick={() => setOpenFull(false)}>
-              Wallet
-              {/* <Link to="/">Wallet</Link> */}
-            </button>
-            <button onClick={() => setOpenFull(false)}>
-              <Link to="/basket">Basket</Link>
-            </button>
-          </nav>
+          <button onClick={() => setOpenFull(false)}>
+            <Link to="/">Machine</Link>
+          </button>
+          <button onClick={() => setOpenFull(false)}>
+            Wallet
+            {/* <Link to="/wallet">Wallet</Link> */}
+          </button>
+          <button onClick={() => setOpenFull(false)}>
+            <Link to="/basket">Basket</Link>
+          </button>
         </MenuWindow>
       ) : null}
     </Router>
