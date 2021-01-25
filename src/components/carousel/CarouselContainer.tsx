@@ -45,7 +45,10 @@ const CarouselContainer: React.FC<Props> = ({ children }) => {
         clickFunction={() => changeIndex("left")}
         glyph="<-"
       />
-      <CarouselItemContainer item={children[currentIndex]} changeIndex={changeIndex} />
+      <CarouselItemContainer
+        item={children[currentIndex]}
+        changeIndex={changeIndex}
+      />
       <CarouselArrow
         direction="right"
         clickFunction={() => changeIndex("right")}

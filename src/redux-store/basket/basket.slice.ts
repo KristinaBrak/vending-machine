@@ -8,17 +8,7 @@ export interface Basket {
 }
 
 const initialState: Basket = {
-  boughtProducts: [
-    //TODO remove objects after testing
-    {
-      product: { id: "1", name: "apple", pictureURL: `${apple}`, price: 50 },
-      quantity: 2,
-    },
-    {
-      product: { id: "3", name: "cola", pictureURL: `${cola}`, price: 100 },
-      quantity: 3,
-    },
-  ],
+  boughtProducts: [],
 };
 
 const { reducer: basketReducer, actions } = createSlice({

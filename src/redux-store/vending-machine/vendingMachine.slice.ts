@@ -10,21 +10,33 @@ export interface Product {
   price: number;
 }
 
+export interface Slot {
+  code: string;
+  product: Product;
+  quantity: number;
+}
+
 interface VendingMachine {
-  products: Product[];
-  quantity: { productId: string; quantity: number }[];
+  slotList: Slot[];
 }
 
 const initialState: VendingMachine = {
-  products: [
-    { id: "1", name: "apple", pictureURL: `${apple}`, price: 50 },
-    { id: "2", name: "chips", pictureURL: `${chips}`, price: 250 },
-    { id: "3", name: "cola", pictureURL: `${cola}`, price: 100 },
-  ],
-  quantity: [
-    { productId: "1", quantity: 5 },
-    { productId: "2", quantity: 5 },
-    { productId: "3", quantity: 5 },
+  slotList: [
+    {
+      code: "1234",
+      product: { id: "1", name: "apple", pictureURL: `${apple}`, price: 50 },
+      quantity: 10,
+    },
+    {
+      code: "2345",
+      product: { id: "2", name: "chips", pictureURL: `${chips}`, price: 250 },
+      quantity: 10,
+    },
+    {
+      code: "3456",
+      product: { id: "3", name: "cola", pictureURL: `${cola}`, price: 100 },
+      quantity: 10,
+    },
   ],
 };
 
@@ -32,11 +44,11 @@ const { reducer: vendingMachineReducer, actions } = createSlice({
   name: "vendingMachine",
   initialState,
   reducers: {
-    addProduct: (state, { payload }: PayloadAction<Product>) => {
-      state.products.push(payload);
+    addSlot: (state, { payload }: PayloadAction<Slot>) => {
+      state.slotList.push(payload);
     },
   },
 });
 
-export const { addProduct } = actions;
+export const { addSlot } = actions;
 export default vendingMachineReducer;

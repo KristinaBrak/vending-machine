@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 const ControlPanel = styled.div`
-  --sizeNumberButton: 60px;
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 20px;
   display: grid;
   justify-content: center;
@@ -16,7 +15,7 @@ const ControlPanel = styled.div`
   column-gap: 5px;
   row-gap: 5px;
   & #keypad-cancel {
-    height: calc(var(--sizeNumberButton) * 2);
+    height: calc(60px * 2);
   }
 `;
 

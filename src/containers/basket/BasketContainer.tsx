@@ -14,12 +14,16 @@ const BasketContainer = () => {
       0
     );
     setProductsQuantity(counter);
-  }, [productsQuantity]);
+  }, [boughtProducts]);
 
   return (
     <MainWindow>
       <h1>Basket</h1>
-      <h3>All items: {productsQuantity}</h3>
+      {productsQuantity === 0 ? (
+        <h3>Basket is empty</h3>
+      ) : (
+        <h3>Items in basket: {productsQuantity}</h3>
+      )}
       {boughtProducts.map((item) => (
         <BoughtProductContainer
           key={item.product.id}

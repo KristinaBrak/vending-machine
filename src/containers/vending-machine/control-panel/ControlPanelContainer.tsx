@@ -5,6 +5,7 @@ import ControlPanel from "./ControlPanel";
 import KeypadButton from "./KeypadButton";
 
 const CODE_LENGTH = 4;
+const digits = Array.from(Array(10).keys());
 
 interface Props {
   money: number;
@@ -12,20 +13,27 @@ interface Props {
 
 const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
   const [code, setCode] = useState("");
-  const digits = Array.from(Array(10).keys());
 
   useEffect(() => {
+    let timeout: NodeJS.Timeout;
     if (code.length === CODE_LENGTH) {
+      timeout = setTimeout(() => {
+        submitCode();
+      }, 700);
       //TODO do stuff
-      resetCode();
     }
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [code]);
 
   const appendDigitToCode = (digit: number) => {
-    setCode(code + digit);
+    if (code.length < CODE_LENGTH) {
+      setCode(code + digit);
+    }
   };
 
-  const resetCode = () => {
+  const submitCode = () => {
     setCode("");
   };
 
@@ -48,7 +56,7 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
         key="cancel"
         id={`keypad-cancel`}
         className="cancel"
-        onClick={resetCode}
+        onClick={submitCode}
       >
         C
       </KeypadButton>

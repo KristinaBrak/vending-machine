@@ -4,13 +4,14 @@ const BoughtProduct = styled.div`
   display: flex;
   padding: 10px;
   width: 300px;
-  background-color: hsla(0, 0%, 83%, 0.7);
+  background-color: hsla(0, 0%, 83%, 0.5);
   backdrop-filter: blur(1rem);
   box-shadow: 5px 2px 12px black;
   margin: 10px;
   border-radius: 10px;
   backdrop-filter: blur(1rem);
-  justify-content: space-between;
+  justify-content: space-around;
+  position: relative;
 
   & img {
     width: 100px;
@@ -22,7 +23,10 @@ const BoughtProduct = styled.div`
   }
 
   & h3 {
+    font-size: 36px;
+    align-self: center;
     color: black;
+    font-weight: normal;
   }
 `;
 

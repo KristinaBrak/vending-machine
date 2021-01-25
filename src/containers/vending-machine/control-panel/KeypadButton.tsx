@@ -12,6 +12,10 @@ const KeypadButton = styled.button`
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 1px 2px 2px black;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export default KeypadButton;

@@ -9,16 +9,17 @@ const MenuButton = styled.button`
   width: var(--size);
   height: var(--size);
   z-index: 3;
+
   border-radius: 50%;
   background-color: #eceaea;
-
-  &#open {
-    margin: -8px;
-  }
 
   &:active {
     background-color: gray;
     color: #eceaea;
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
 

@@ -17,7 +17,7 @@ const MenuWindow = styled.div`
     color: white;
     font-size: 32px;
     padding: 10px;
-    padding-top: 20px;
+    padding-top: 40px;
   }
 
   & button {
