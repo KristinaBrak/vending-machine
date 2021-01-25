@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const VendingMachine = styled.div`
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 0;
   width: 350px;
-  height: 600px;
+  height: 620px;
   background: linear-gradient(
     to right top,
     hsla(0, 0%, 0%, 0.25),

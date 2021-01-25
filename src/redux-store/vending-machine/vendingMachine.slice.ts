@@ -47,6 +47,14 @@ const { reducer: vendingMachineReducer, actions } = createSlice({
     addSlot: (state, { payload }: PayloadAction<Slot>) => {
       state.slotList.push(payload);
     },
+    decrementProductQuantity: (state, { payload }: PayloadAction<Product>) => {
+      state.slotList.map((slot) => {
+        if (slot.product === payload && slot.quantity !== 0) {
+          slot.quantity -= 1;
+        }
+        return slot;
+      });
+    },
   },
 });
 

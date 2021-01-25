@@ -3,6 +3,9 @@ import { CURRENCY, DELIMITER } from "../../../consts";
 import TextArea from "./TextArea";
 import ControlPanel from "./ControlPanel";
 import KeypadButton from "./KeypadButton";
+import { addProduct } from "../../../redux-store/basket/basket.slice";
+import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
+import { useSelector } from "react-redux";
 
 const CODE_LENGTH = 4;
 const digits = Array.from(Array(10).keys());
@@ -12,6 +15,7 @@ interface Props {
 }
 
 const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
+  const slots = useSelector(slotListSelector);
   const [code, setCode] = useState("");
 
   useEffect(() => {
@@ -20,7 +24,6 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
       timeout = setTimeout(() => {
         submitCode();
       }, 700);
-      //TODO do stuff
     }
     return () => {
       clearTimeout(timeout);
@@ -33,7 +36,16 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
     }
   };
 
+  const findProduct = () => {
+    const foundSlot = slots.find((slot) => slot.code === code);
+    return foundSlot?.product;
+  };
+
   const submitCode = () => {
+    const product = findProduct();
+    if (product !== undefined) {
+      addProduct(product);
+    }
     setCode("");
   };
 
@@ -56,7 +68,7 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
         key="cancel"
         id={`keypad-cancel`}
         className="cancel"
-        onClick={submitCode}
+        onClick={() => setCode("")}
       >
         C
       </KeypadButton>

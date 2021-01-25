@@ -10,7 +10,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <MenuContainer />
-      <VendingMachineContainer />
+      <BasketContainer />
     </Provider>
   );
 };

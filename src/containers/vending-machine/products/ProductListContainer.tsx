@@ -4,7 +4,7 @@ import { slotListSelector } from "../../../redux-store/vending-machine/vendingMa
 import CarouselContainer from "../../../components/carousel/CarouselContainer";
 import ProductContainer from "./product/ProductContainer";
 import ProductList from "./ProductList";
-import { addProduct } from "../../../redux-store/basket/basket.slice";
+
 
 const ProductListContainer = () => {
   const slots = useSelector(slotListSelector);

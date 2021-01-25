@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import metallic from "../../images/metallic.jpg";
 
 const MenuButton = styled.button`
   --size: 50px;
@@ -9,12 +10,12 @@ const MenuButton = styled.button`
   width: var(--size);
   height: var(--size);
   z-index: 3;
-
   border-radius: 50%;
-  background-color: #eceaea;
+  background: url(${metallic});
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &:active {
-    background-color: gray;
     color: #eceaea;
   }
 
