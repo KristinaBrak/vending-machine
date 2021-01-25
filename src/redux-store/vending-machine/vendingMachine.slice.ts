@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAction, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import apple from "../../images/apple.jpg";
 import chips from "../../images/chips.png";
 import cola from "../../images/cola.png";
@@ -40,6 +40,8 @@ const initialState: VendingMachine = {
   ],
 };
 
+export const buyProduct = createAction<Product>("buyProduct");
+
 const { reducer: vendingMachineReducer, actions } = createSlice({
   name: "vendingMachine",
   initialState,
@@ -47,16 +49,18 @@ const { reducer: vendingMachineReducer, actions } = createSlice({
     addSlot: (state, { payload }: PayloadAction<Slot>) => {
       state.slotList.push(payload);
     },
-    decrementProductQuantity: (state, { payload }: PayloadAction<Product>) => {
+  },
+  extraReducers: (builder) => {
+    builder.addCase(buyProduct, (state, { payload }) => {
       state.slotList.map((slot) => {
         if (slot.product.id === payload.id && slot.quantity !== 0) {
           slot.quantity = slot.quantity - 1;
         }
         return slot;
       });
-    },
+    });
   },
 });
 
-export const { addSlot, decrementProductQuantity } = actions;
+export const { addSlot } = actions;
 export default vendingMachineReducer;

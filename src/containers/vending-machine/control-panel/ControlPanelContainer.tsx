@@ -4,7 +4,7 @@ import TextArea from "./TextArea";
 import ControlPanel from "./ControlPanel";
 import KeypadButton from "./KeypadButton";
 import { addProduct } from "../../../redux-store/basket/basket.slice";
-import { decrementProductQuantity } from "../../../redux-store/vending-machine/vendingMachine.slice";
+import { buyProduct } from "../../../redux-store/vending-machine/vendingMachine.slice";
 import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,21 +32,10 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
     };
   }, [code]);
 
-  const findProduct = () => {
-    const foundSlot = slots.find((slot) => slot.code === code);
-    console.log("I found", foundSlot);
-    if (foundSlot !== undefined && foundSlot.quantity === 0) {
-      return undefined;
-    }
-    return foundSlot?.product;
-  };
-
   const submitCode = () => {
-    const product = findProduct();
-    console.log("submitCode product", product);
-    if (product !== undefined) {
-      dispatch(decrementProductQuantity(product));
-      dispatch(addProduct(product));
+    const slot = slots.find((slot) => slot.code === code);
+    if (slot && slot.quantity > 0) {
+      dispatch(buyProduct(slot.product));
     }
     setCode("");
   };
