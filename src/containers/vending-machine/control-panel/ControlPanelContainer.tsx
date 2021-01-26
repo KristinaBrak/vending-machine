@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { CURRENCY, DELIMITER } from "../../../consts";
-import TextArea from "./TextArea";
-import ControlPanel from "./ControlPanel";
-import KeypadButton from "./KeypadButton";
-import { addProduct } from "../../../redux-store/basket/basket.slice";
+import { CURRENCY, DELIMITER, CODE_LENGTH } from "../../../consts";
 import { buyProduct } from "../../../redux-store/vending-machine/vendingMachine.slice";
 import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
 import { useDispatch, useSelector } from "react-redux";
-
-const CODE_LENGTH = 4;
-const digits = Array.from(Array(10).keys());
-
+import ControlPanelComponent from "./ControlPanelComponent";
 interface Props {
   money: number;
 }
@@ -48,29 +41,11 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
   };
 
   return (
-    <ControlPanel>
-      <TextArea className="text-area">
-        {code ? code : `${(money / DELIMITER).toString()}${CURRENCY}`}
-      </TextArea>
-      {digits.map((digit) => (
-        <KeypadButton
-          key={digit}
-          id={`keypad-${digit}`}
-          className="keypad-digit"
-          onClick={() => appendDigitToCode(digit)}
-        >
-          {digit}
-        </KeypadButton>
-      ))}
-      <KeypadButton
-        key="cancel"
-        id={`keypad-cancel`}
-        className="cancel"
-        onClick={() => setCode("")}
-      >
-        C
-      </KeypadButton>
-    </ControlPanel>
+    <ControlPanelComponent
+      display={code ? code : `${(money / DELIMITER).toString()}${CURRENCY}`}
+      appendDigit={appendDigitToCode}
+      resetCode={() => setCode("")}
+    />
   );
 };
 
