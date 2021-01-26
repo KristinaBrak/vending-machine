@@ -2,9 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
 import CarouselContainer from "../../../components/carousel/CarouselContainer";
-import ProductContainer from "./product/ProductContainer";
+import ProductComponent from "./product/ProductComponent";
 import ProductList from "./ProductList";
-
 
 const ProductListContainer = () => {
   const slots = useSelector(slotListSelector);
@@ -17,7 +16,7 @@ const ProductListContainer = () => {
       </h2>
       <CarouselContainer>
         {slots.map((slot) => (
-          <ProductContainer
+          <ProductComponent
             key={slot.product.name}
             product={slot.product}
             code={slot.code}

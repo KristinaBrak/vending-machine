@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { CURRENCY, DELIMITER, CODE_LENGTH } from "../../../consts";
+import { CURRENCY, DELIMITER, CODE_LENGTH, MONEY } from "../../../consts";
 import { buyProduct } from "../../../redux-store/vending-machine/vendingMachine.slice";
 import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
 import { useDispatch, useSelector } from "react-redux";
 import ControlPanelComponent from "./ControlPanelComponent";
-interface Props {
-  money: number;
-}
 
-const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
+const ControlPanelConteiner = () => {
   const slots = useSelector(slotListSelector);
   const dispatch = useDispatch();
   const [code, setCode] = useState("");
@@ -42,7 +39,7 @@ const ControlPanelConteiner: React.FC<Props> = ({ money }) => {
 
   return (
     <ControlPanelComponent
-      display={code ? code : `${(money / DELIMITER).toString()}${CURRENCY}`}
+      display={code ? code : `${(MONEY / DELIMITER).toString()}${CURRENCY}`}
       appendDigit={appendDigitToCode}
       resetCode={() => setCode("")}
     />

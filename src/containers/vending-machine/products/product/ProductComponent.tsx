@@ -8,7 +8,7 @@ interface Props {
   code: string;
 }
 
-const ProductContainer: React.FC<Props> = ({ product, code }) => {
+const ProductComponent: React.FC<Props> = ({ product, code }) => {
   return (
     <>
       <div className="product-name">{product.name}</div>
@@ -22,4 +22,4 @@ const ProductContainer: React.FC<Props> = ({ product, code }) => {
   );
 };
 
-export default ProductContainer;
+export default ProductComponent;

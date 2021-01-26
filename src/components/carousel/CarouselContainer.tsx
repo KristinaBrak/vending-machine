@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { Product } from "../../redux-store/vending-machine/vendingMachine.slice";
 import CarouselArrow from "./CarouselArrow";
-import ProductContainer from "../../containers/vending-machine/products/product/ProductContainer";
 import Carousel from "./Carousel";
 import CarouselItemContainer from "./CarouselItemContainer";
-import { current } from "@reduxjs/toolkit";
 
 interface Props {
   children: React.ReactNode[];
