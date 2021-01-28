@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BasketContainer from "../basket/BasketContainer";
 import VendingMachineContainer from "../vending-machine/VendingMachineContainer";
 import WalletContainer from "../wallet/WalletContainer";
+import CoinSlotContainer from "../coin-slot/CoinSlotContainer";
 
 const MenuContainer = () => {
   const [openFull, setOpenFull] = useState(false);
@@ -32,7 +33,7 @@ const MenuContainer = () => {
           <VendingMachineContainer />
         </Route>
         <Route exact path="/coin-slot">
-          {/* <CoinSlotContainer /> */}
+          <CoinSlotContainer />
         </Route>
       </Switch>
       {openFull ? (

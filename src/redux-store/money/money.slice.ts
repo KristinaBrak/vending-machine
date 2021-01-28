@@ -1,14 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CURRENCY } from "../../consts";
+import { buyProduct } from "../vending-machine/vendingMachine.slice";
 
 interface Money {
   total: number;
-  currencySign: string;
 }
 
 const initialState: Money = {
-  total: 1000,
-  currencySign: CURRENCY,
+  total: 1053,
 };
 
 const { reducer: moneyReducer, actions } = createSlice({
@@ -16,15 +14,16 @@ const { reducer: moneyReducer, actions } = createSlice({
   initialState,
   reducers: {
     add: (state, { payload }: PayloadAction<Money>) => {
-      if (payload.currencySign === state.currencySign) {
-        state.total += payload.total;
-      }
+      state.total += payload.total;
     },
     withdraw: (state, { payload }: PayloadAction<Money>) => {
-      if (payload.currencySign === state.currencySign) {
-        state.total -= payload.total;
-      }
+      state.total -= payload.total;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(buyProduct, (state, { payload }) => {
+      state.total -= payload.price;
+    });
   },
 });
 

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { CURRENCY, DELIMITER, CODE_LENGTH, MONEY } from "../../../consts";
+import { CURRENCY, DELIMITER, CODE_LENGTH } from "../../../consts";
 import { buyProduct } from "../../../redux-store/vending-machine/vendingMachine.slice";
 import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
 import { useDispatch, useSelector } from "react-redux";
 import ControlPanelComponent from "./ControlPanelComponent";
+import { moneySelector } from "../../../redux-store/money/money.selector";
 
 const ControlPanelConteiner = () => {
   const slots = useSelector(slotListSelector);
+  const { total: money } = useSelector(moneySelector);
   const dispatch = useDispatch();
   const [code, setCode] = useState("");
 
@@ -24,7 +26,7 @@ const ControlPanelConteiner = () => {
 
   const submitCode = () => {
     const slot = slots.find((slot) => slot.code === code);
-    if (slot && slot.quantity > 0) {
+    if (slot && slot.quantity > 0 && money - slot.product.price >= 0) {
       dispatch(buyProduct(slot.product));
     }
     setCode("");
@@ -39,7 +41,7 @@ const ControlPanelConteiner = () => {
 
   return (
     <ControlPanelComponent
-      display={code ? code : `${(MONEY / DELIMITER).toString()}${CURRENCY}`}
+      display={code ? code : `${(money / DELIMITER).toString()}${CURRENCY}`}
       appendDigit={appendDigitToCode}
       resetCode={() => setCode("")}
     />
