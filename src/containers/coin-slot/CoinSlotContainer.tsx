@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CURRENCY } from "../../consts";
+import { coinSlotSelector } from "../../redux-store/coin-slot/coinSlot.selector";
+import { insertToSlot } from "../../redux-store/coin-slot/coinSlot.slice";
 import { moneySelector } from "../../redux-store/money/money.selector";
 import { withdraw } from "../../redux-store/money/money.slice";
 import CoinSlot from "./CoinSlot";
 
 const CoinSlotContainer = () => {
   const { total: money } = useSelector(moneySelector);
-  const [slotMoney, setSlotMoney] = useState(0);
+  const { total: coinSlotMoney } = useSelector(coinSlotSelector);
   const dispatch = useDispatch();
 
   const addMoneyToSlot = (amount: number) => {
     if (money - amount >= 0) {
-      setSlotMoney(slotMoney + amount);
       dispatch(withdraw({ total: amount }));
+      dispatch(insertToSlot({ total: amount }));
     }
   };
 
   return (
     <CoinSlot
       moneyInWallet={money}
-      slotMoney={slotMoney}
+      slotMoney={coinSlotMoney}
       addToSlot={addMoneyToSlot}
     />
   );

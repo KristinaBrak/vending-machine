@@ -4,11 +4,11 @@ import { buyProduct } from "../../../redux-store/vending-machine/vendingMachine.
 import { slotListSelector } from "../../../redux-store/vending-machine/vendingMachine.selector";
 import { useDispatch, useSelector } from "react-redux";
 import ControlPanelComponent from "./ControlPanelComponent";
-import { moneySelector } from "../../../redux-store/money/money.selector";
+import { coinSlotSelector } from "../../../redux-store/coin-slot/coinSlot.selector";
 
 const ControlPanelConteiner = () => {
   const slots = useSelector(slotListSelector);
-  const { total: money } = useSelector(moneySelector);
+  const { total: money } = useSelector(coinSlotSelector);
   const dispatch = useDispatch();
   const [code, setCode] = useState("");
 

@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { buyProduct } from "../vending-machine/vendingMachine.slice";
 
-interface Money {
+export interface Money {
   total: number;
 }
 
@@ -19,11 +18,6 @@ const { reducer: moneyReducer, actions } = createSlice({
     withdraw: (state, { payload }: PayloadAction<Money>) => {
       state.total -= payload.total;
     },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(buyProduct, (state, { payload }) => {
-      state.total -= payload.price;
-    });
   },
 });
 
