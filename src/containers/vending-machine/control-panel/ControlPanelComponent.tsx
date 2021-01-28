@@ -17,7 +17,9 @@ const ControlPanelComponent: React.FC<Props> = ({
 }) => {
   return (
     <ControlPanel>
-      <TextArea className="text-area">{display}</TextArea>
+      <TextArea className="control-panel-textarea" key="contol-panel-textarea">
+        {display}
+      </TextArea>
       {digits.map((digit) => (
         <KeypadButton
           key={digit}
