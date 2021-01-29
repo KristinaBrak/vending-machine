@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import MainWindow from "../../components/main/MainWindow";
+import Subtitle from "../../components/main/Subtitle";
+import Title from "../../components/main/Title";
 import { boughtProductsSelector } from "../../redux-store/basket/basket.selector";
 import BoughtProductContainer from "./BoughtProductContainer";
 
@@ -18,11 +20,11 @@ const BasketContainer = () => {
 
   return (
     <MainWindow>
-      <h1>Basket</h1>
+      <Title>Basket</Title>
       {productsQuantity === 0 ? (
-        <h3>Basket is empty</h3>
+        <Subtitle>Basket is empty</Subtitle>
       ) : (
-        <h3>Items in basket: {productsQuantity}</h3>
+        <Subtitle>Items in basket: {productsQuantity}</Subtitle>
       )}
       {boughtProducts.map((item) => (
         <BoughtProductContainer

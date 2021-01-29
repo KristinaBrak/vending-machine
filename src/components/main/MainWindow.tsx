@@ -16,17 +16,5 @@ const MainWindow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  & h1 {
-    color: #eceaea;
-    font-size: 36px;
-    margin: 10px;
-  }
-
-  & h3 {
-    color: #eceaea;
-    font-size: 28px;
-    margin: 10px;
-  }
 `;
 export default MainWindow;
