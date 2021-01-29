@@ -1,18 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import MainWindow from "../../components/main/MainWindow";
+import Subtitle from "../../components/main/Subtitle";
 import { CURRENCY, DELIMITER } from "../../consts";
-import { moneySelector } from "../../redux-store/money/money.selector";
+import { walletSelector } from "../../redux-store/wallet/wallet.selector";
 // import Wallet from "./Wallet";
 
 const WalletContainer = () => {
-  const { total: money } = useSelector(moneySelector);
+  const { total: money } = useSelector(walletSelector);
 
   return (
     <MainWindow>
       <h1>Wallet</h1>
-      <h2>Currently in wallet:</h2>
-      <h2>{`${money / DELIMITER}${CURRENCY}`}</h2>
+      <Subtitle>Currently in wallet:</Subtitle>
+      <Subtitle>{`${money / DELIMITER}${CURRENCY}`}</Subtitle>
     </MainWindow>
   );
 };

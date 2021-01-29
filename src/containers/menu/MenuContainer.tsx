@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuButton from "./MenuButton";
 import MenuWindow from "./MenuWindow";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -6,9 +6,20 @@ import BasketContainer from "../basket/BasketContainer";
 import VendingMachineContainer from "../vending-machine/VendingMachineContainer";
 import WalletContainer from "../wallet/WalletContainer";
 import CoinSlotContainer from "../coin-slot/CoinSlotContainer";
+import MenuLink from "./MenuLink";
+import Subtitle from "../../components/main/Subtitle";
+import Title from "../../components/main/Title";
 
 const MenuContainer = () => {
   const [openFull, setOpenFull] = useState(false);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    timeout = setTimeout(() => {}, 5000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [openFull]);
 
   return (
     <Router>
@@ -38,19 +49,19 @@ const MenuContainer = () => {
       </Switch>
       {openFull ? (
         <MenuWindow>
-          <h2>Vending Machine</h2>
-          <button onClick={() => setOpenFull(false)}>
+          <Title>Vending Machine</Title>
+          <MenuLink onClick={() => setOpenFull(false)}>
             <Link to="/">Machine</Link>
-          </button>
-          <button onClick={() => setOpenFull(false)}>
+          </MenuLink>
+          <MenuLink onClick={() => setOpenFull(false)}>
             <Link to="/wallet">Wallet</Link>
-          </button>
-          <button onClick={() => setOpenFull(false)}>
+          </MenuLink>
+          <MenuLink onClick={() => setOpenFull(false)}>
             <Link to="/basket">Basket</Link>
-          </button>
-          <button onClick={() => setOpenFull(false)}>
+          </MenuLink>
+          <MenuLink onClick={() => setOpenFull(false)}>
             <Link to="/coin-slot">Coin Slot</Link>
-          </button>
+          </MenuLink>
         </MenuWindow>
       ) : null}
     </Router>

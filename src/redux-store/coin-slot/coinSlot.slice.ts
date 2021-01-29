@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Money } from "../money/money.slice";
+import { Money } from "../wallet/wallet.slice";
 import { buyProduct } from "../vending-machine/vendingMachine.slice";
 
 const initialState: Money = {

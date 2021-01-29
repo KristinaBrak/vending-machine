@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Subtitle from "../../components/main/Subtitle";
 
 const MenuWindow = styled.div`
   position: absolute;
@@ -13,7 +14,7 @@ const MenuWindow = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  & h2 {
+  & ${Subtitle} {
     color: white;
     font-size: 32px;
     padding: 10px;

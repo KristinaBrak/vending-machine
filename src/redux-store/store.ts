@@ -1,12 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import basketReducer from "./basket/basket.slice";
 import coinSlotReducer from "./coin-slot/coinSlot.slice";
-import moneyReducer from "./money/money.slice";
+import walletReducer from "./wallet/wallet.slice";
 import vendingMachineReducer from "./vending-machine/vendingMachine.slice";
 
 const rootReducer = combineReducers({
   vendingMachine: vendingMachineReducer,
-  money: moneyReducer,
+  wallet: walletReducer,
   basket: basketReducer,
   coinSlot: coinSlotReducer,
 });

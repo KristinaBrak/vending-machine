@@ -3,8 +3,8 @@ import styled from "styled-components";
 const MainWindow = styled.div`
   margin: 20px auto;
   padding: 0;
-  width: 350px;
-  height: 600px;
+  width: 95%;
+  height: 95vh;
   background: linear-gradient(
     to right top,
     hsla(0, 0%, 0%, 0.25),

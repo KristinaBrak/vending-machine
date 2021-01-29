@@ -8,8 +8,8 @@ const initialState: Money = {
   total: 1053,
 };
 
-const { reducer: moneyReducer, actions } = createSlice({
-  name: "money",
+const { reducer: walletReducer, actions } = createSlice({
+  name: "wallet",
   initialState,
   reducers: {
     add: (state, { payload }: PayloadAction<Money>) => {
@@ -22,4 +22,4 @@ const { reducer: moneyReducer, actions } = createSlice({
 });
 
 export const { add, withdraw } = actions;
-export default moneyReducer;
+export default walletReducer;

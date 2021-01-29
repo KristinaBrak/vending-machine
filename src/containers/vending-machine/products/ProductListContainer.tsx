@@ -4,6 +4,7 @@ import { slotListSelector } from "../../../redux-store/vending-machine/vendingMa
 import CarouselContainer from "../../../components/carousel/CarouselContainer";
 import ProductComponent from "./product/ProductComponent";
 import ProductList from "./ProductList";
+import Subtitle from "../../../components/main/Subtitle";
 
 const ProductListContainer = () => {
   const slots = useSelector(slotListSelector);
@@ -11,9 +12,9 @@ const ProductListContainer = () => {
 
   return (
     <ProductList>
-      <h2>
+      <Subtitle>
         {text} <i className="fas fa-angle-right fa-sm" />
-      </h2>
+      </Subtitle>
       <CarouselContainer>
         {slots.map((slot) => (
           <ProductComponent

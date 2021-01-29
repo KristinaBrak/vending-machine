@@ -19,6 +19,8 @@ const MenuButton = styled.button`
     color: #eceaea;
   }
 
+
+
   &:focus {
     outline: none;
   }

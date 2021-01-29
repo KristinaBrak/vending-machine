@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Subtitle from "../../../components/main/Subtitle";
 
 const ProductList = styled.div`
   color: #eceaea;
@@ -6,7 +7,7 @@ const ProductList = styled.div`
   display: flex;
   flex-direction: column;
 
-  & h2 {
+  & ${Subtitle} {
     margin: 0;
     margin-left: 10px;
   }
